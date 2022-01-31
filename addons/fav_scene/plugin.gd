@@ -52,8 +52,7 @@ func handles(object):
 
 func edit(object):
 	_editing_object = object
-	print(_editing_object)
-
+	
 
 func _init():
 	load_settings()
@@ -97,7 +96,7 @@ func _on_resource_preview(path:String, texture:Texture, user_data) -> void:
 		button.icon = texture
 		var name_button = path.replace("res://","").replace(".tscn","")
 		button.text = name_button
-		button.rect_min_size = Vector2(32, 32)
+		button.rect_min_size = Vector2(30, 30)
 		button.connect("pressed", self, "_on_scene_pressed", [path])
 		import_instance.get_node("ScrollContainer/VBoxContainer/GridContainer").add_child(button)
 		
@@ -162,3 +161,5 @@ func paint_scene_(scene:Node, pallet:Node, position:Vector2) -> void:
 func undo_paint_scene_(scene:Node, pallet:Node) -> void:
 	pallet.remove_child(scene)
 	# no queue_free as we may redo action
+
+
